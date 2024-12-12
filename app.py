@@ -24,6 +24,24 @@ st.title("GeoPandas Layers with Styling and Filters")
 m = leafmap.Map(center=(27.7172, 85.3240), zoom=10)  # Kathmandu centre
 m.add_basemap("OPENSTREETMAP")  # Add default basemap
 
+# Add Google Maps (disabled by default)
+m.add_tile_layer(
+    url="https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}",
+    name="Google Maps",
+    attribution="© Google",
+    control=True,  # Adds this layer to the layer control
+    shown=False    # Keeps this layer turned off by default
+)
+
+# Add Google Satellite (disabled by default)
+m.add_tile_layer(
+    url="https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
+    name="Google Satellite",
+    attribution="© Google",
+    control=True,  # Adds this layer to the layer control
+    shown=False    # Keeps this layer turned off by default
+)
+
 # Paths to GeoJSON files
 geojson_files = {
     "InternationalBoundary": "data/InternationalBoundary.geojson",
